@@ -1,11 +1,10 @@
 #include <iostream>
 #include <string>
-#include <iomanip>
 #include<ctime>
 #include <vector>
 using namespace std;
 
-
+//用三个class来罗列character
 class dog{
 public:
     string name ="dog";
@@ -31,20 +30,6 @@ public:
     }*/
 };
 
-
-class rat{
-public:
-  string name = "rat";
-  int HP = 50;
-  int attack =30;
-
-  /*void addHP(){
-    cout<<"HP + 30!";
-    HP+=30;
-  }*/
-
-};
-
 class tiger{
 public:
     string name = "tiger";
@@ -57,8 +42,6 @@ public:
     }*/
 };
 
-
-
 void rest(){
     cout<<endl;
     for(int i =0;i<10;i++){
@@ -68,19 +51,19 @@ void rest(){
 }
 
 
-struct animals{
+struct animals{//玩家精灵数据库
     string name;
     int HP;
     int attack;
 };
 
-struct animal_ai{
+struct animal_ai{//ai数据库
     string name;
     int HP;
     int attack;
 };
 
-int Search(animals animal[],string name){
+int Search(animals animal[],string name){//找到name在array里的位置 以便获取array其他的信息
     for(int i =0;i<3;i++){
         if(name==animal[i].name){
             return i;
@@ -126,7 +109,7 @@ bool alive(animals animal[],int index){//判断生命值
     return false;
 }
 
-bool lose(vector<string>bag){
+bool lose(vector<string>bag){//胜利条件是bag里的精灵都死了
     for(int i =0;i<bag.size();i++){
         if(bag[i]!=""){
             return false;
@@ -139,7 +122,7 @@ bool lose(vector<string>bag){
 void fight(vector<string>bag){
     int ai_1 = 2;//(rand())%3;//随机数？
     int ai_2 = 0;//(rand())%3;//随机数
-    cout<< "AI_1: "<<endl;//两个AI和玩家对打，每次只选一个攻击，算作一回合
+    cout<< "AI_1: "<<endl;//两个AI和玩家对打，每次只选一个攻击，算作一回合 还未加入异常状态
     cout<<animal_ai[ai_1].name<<endl;
     cout<<animal_ai[ai_1].HP<<endl;
     cout<<animal_ai[ai_1].attack<<endl;
@@ -222,7 +205,7 @@ int main(){
         cout<<"enter your pet:";
         cin>>name;
         int i = Search(animal,name);
-        while (i==-1){
+        while (i==-1){//避免错误
             cout<<"enter your pet:";
             cin>>name;
             i = Search(animal,name);
