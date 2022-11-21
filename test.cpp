@@ -42,7 +42,7 @@ public:
     }*/
 };
 
-void rest(){
+void rest(){ //美化
     cout<<endl;
     for(int i =0;i<10;i++){
         cout<<"-";
@@ -191,11 +191,8 @@ void fight(vector<string>bag){
             cout<<endl<<"You lose!";
             break;
         }
-
     }
-
 }
-
 
 int main(){
     input();
@@ -220,16 +217,5 @@ int main(){
         }
         rest();
         }
-    fight(bag);
-    
+    fight(bag);   
 }
-
-
-    
-    
- 
-    
-    
-
-
-
