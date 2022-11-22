@@ -4,7 +4,7 @@
 #include <vector>
 using namespace std;
 
-//用三个class来罗列character
+
 class dog{
 public:
     string name ="dog";
@@ -42,7 +42,7 @@ public:
     }*/
 };
 
-void rest(){ //美化
+void rest(){
     cout<<endl;
     for(int i =0;i<10;i++){
         cout<<"-";
@@ -51,19 +51,19 @@ void rest(){ //美化
 }
 
 
-struct animals{//玩家精灵数据库
+struct animals{
     string name;
     int HP;
     int attack;
 };
 
-struct animal_ai{//ai数据库
+struct animal_ai{
     string name;
     int HP;
     int attack;
 };
 
-int Search(animals animal[],string name){//找到name在array里的位置 以便获取array其他的信息
+int Search(animals animal[],string name){
     for(int i =0;i<3;i++){
         if(name==animal[i].name){
             return i;
@@ -78,7 +78,6 @@ animals animal_ai[10]; //AI 的精灵数据库
 void input(){
     dog dog;//create object
     cat cat;
-    rat rat;
     tiger tiger;
     animal[0].name =dog.name;//把class里的数据放到animals里
     animal[0].HP =dog.HP;
@@ -109,20 +108,17 @@ bool alive(animals animal[],int index){//判断生命值
     return false;
 }
 
-bool lose(vector<string>bag){//胜利条件是bag里的精灵都死了
-    for(int i =0;i<bag.size();i++){
-        if(bag[i]!=""){
-            return false;
-        }
+bool lose(vector<string>bag){
+    if(!bag.empty()){
+        return false;
     }
     return true;
 }
 
-
 void fight(vector<string>bag){
     int ai_1 = 2;//(rand())%3;//随机数？
     int ai_2 = 0;//(rand())%3;//随机数
-    cout<< "AI_1: "<<endl;//两个AI和玩家对打，每次只选一个攻击，算作一回合 还未加入异常状态
+    cout<< "AI_1: "<<endl;//两个AI和玩家对打，每次只选一个攻击，算作一回合
     cout<<animal_ai[ai_1].name<<endl;
     cout<<animal_ai[ai_1].HP<<endl;
     cout<<animal_ai[ai_1].attack<<endl;
@@ -139,33 +135,35 @@ void fight(vector<string>bag){
     int num,choose;
     while(true){
         cout<<"Your turn, choose the pet: "<<endl;
-        cout<<"Your pet:";
+        cout<<"Your pet ";
         for(int i=0;i<bag.size();i++){
-            cout<<i<<":"<<bag[i]<<" ";
+            cout<<"Enter "<<i<<":"<<bag[i]<<" ";
         }
         cin>>name;
-        cout<<bag[name]<<" is going to attack!";
+        cout<<"Your"<<bag[name]<<" is going to attack!"<<endl;
         string pname = bag[name];
-        
         cout<<"Who do you want to attack: "<<endl;
-        cout<<"enemy: ";
+        cout<<"Enemy ";
+
         for(int i =0;i<bag_ai.size();i++){//输出ai的精灵 按数字排列开
-            cout<<i<<":"<<bag_ai[i]<<" ";
+            cout<<" Enter "<<i<<":"<<bag_ai[i]<<" ";
         }
         cin>>choose;//接收选择
         int enemy = Search(animal_ai,bag_ai[choose]);//获取ai选择的精灵的数据
         int pet = Search(animal,pname);//获取自己精灵的数据
-        cout<<animal_ai[enemy].name<<" has been attacked!"<<endl;
+        cout<<"AI's"<<animal_ai[enemy].name<<" has been attacked!"<<endl;
         cout<<"HP- "<<animal[pet].attack<<endl;
         animal_ai[enemy].HP-=animal[pet].attack;//扣除ai被攻击方的血量
         cout<<"HP: "<<animal_ai[enemy].HP<<endl;
 
+
         if(!alive(animal_ai,enemy)){
-            cout<<animal_ai[enemy].name <<" is dead!";
-            bag_ai[choose]="";
+            cout<<"AI's"<<animal_ai[enemy].name <<" is dead!";
+            vector<string>::iterator j=bag_ai.begin();
+            bag_ai.erase(j+choose,j+choose+1);
         }
         if(lose(bag_ai)){
-            cout<<"You win!";
+            cout<<endl<<"You win!"<<endl;
             break;
         }
         rest();
@@ -176,46 +174,63 @@ void fight(vector<string>bag){
             choose_ai=(rand()%2);//攻击的ai 必须还是存活状态
         }
         int choose_fai=(rand()%2);//被攻击精灵
-        cout<<bag_ai[choose_ai]<<"is going to fight!"<<endl;
+        cout<<"AI's "<<bag_ai[choose_ai]<<" is going to fight!"<<endl;
         cout<<bag_ai[choose_ai]<<" is going to attack "<<bag[choose_fai]<<"!"<<endl;
-        cout<<bag[choose_fai]<<" has been attacked!"<<endl;
+        cout<<"Your"<<bag[choose_fai]<<" has been attacked!"<<endl;
         int attack = Search(animal,bag[choose_fai]);//玩家被攻击的精灵的数据
-        cout<<"HP- "<<animal_ai[attack].attack<<endl;
+        cout<<"HP - "<<animal_ai[attack].attack<<endl;
         animal[attack].HP-=animal_ai[attack].attack;//扣除玩家精灵的血量
         cout<<"HP: "<<animal[attack].HP<<endl;
+
+
         if(!alive(animal,enemy)){
-            cout<<animal[enemy].name <<" is dead!";
-            bag_ai[choose]="";
+            cout<<"Your "<<animal[enemy].name <<" is dead!";
+            vector<string>::iterator i=bag.begin();
+            bag.erase(i+choose_fai,i+choose_fai+1);
         }
-        if(lose(bag_ai)){
-            cout<<endl<<"You lose!";
+        if(lose(bag)){
+            cout<<endl<<"You lose!"<<endl;
             break;
         }
+
     }
+
 }
+
 
 int main(){
     input();
     string name;
     vector<string> bag;//个人背包
     for(int j=0;j<2;j++){//选两次
-        cout<<"enter your pet:";
+        cout<<"Enter your pet: ";
         cin>>name;
         int i = Search(animal,name);
-        while (i==-1){//避免错误
-            cout<<"enter your pet:";
+        while (i==-1){
+            cout<<"Enter your pet: ";
             cin>>name;
             i = Search(animal,name);
         }
         bag.push_back(name);
-        cout<<"your pet: "<<animal[i].name<<endl;
+        cout<<"Your pet: "<<animal[i].name<<endl;
         cout<<"HP: "<<animal[i].HP<<endl;
         cout<<"Attack: "<<animal[i].attack<<endl;
-        cout<<"your bag: ";
+        cout<<"Your bag: ";
         for(vector<string>::iterator i=bag.begin();i!=bag.end();i++){
             cout<<*i<<" ";
         }
         rest();
         }
-    fight(bag);   
+    fight(bag);
+    
 }
+
+
+    
+    
+ 
+    
+    
+
+
+
