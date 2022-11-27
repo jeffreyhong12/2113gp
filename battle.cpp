@@ -469,21 +469,21 @@ void fight(vector<string>bag, vector<string>bag_ai) {
                     cout << "[System]=> " << "Attack seems not effective..." << endl;
                 }
             }
-            if (attack_choose == 2) { //使用技能攻击时
-                system("cls"); //选完技能战斗清屏 -XX
+            if (attack_choose == 2) { //When attacking with skills
+                system("cls"); //After the selection of skills combat clear screen -XX
                 cout << "[System]=> " << "Go ! [" << bag[name] << "] use [" << Pokemen[fighting_Pokemen].skill << "] !" << endl;
                 cout << "[System]=> [" << bag[name] << "] does [" << Pokemen[fighting_Pokemen].skill_attack - Pokemen_ai[enemy].defense << "] damage to [" << Pokemen_ai[enemy].name << "] !" << endl;  //两句化成一句 -XX
                 //cout << Pokemen_ai[enemy].name << " has been attacked!" << endl;
                 if (Pokemen_ai[enemy].defense < Pokemen[fighting_Pokemen].skill_attack) {
-                    Pokemen_ai[enemy].HP -= (Pokemen[fighting_Pokemen].skill_attack - Pokemen_ai[enemy].defense); //根据公式扣血
+                    Pokemen_ai[enemy].HP -= (Pokemen[fighting_Pokemen].skill_attack - Pokemen_ai[enemy].defense); //HP deduction according to the formula
                 }
                 else {
                     cout << "[System]=> " << "Attack seems not effective..." << endl;
                 }
 
                 int temp_possible_affect_1 = rand() % (100 + 50 * Pokemen[fighting_Pokemen].skill_level);
-                if (temp_possible_affect_1 <= 50) {     //概率使对方中异常状态
-                    if (Pokemen[fighting_Pokemen].skill_effect == "stunned") {   //判断属于哪种异常状态
+                if (temp_possible_affect_1 <= 50) {     //Probability of causing the opponent to have an abnormal status
+                    if (Pokemen[fighting_Pokemen].skill_effect == "stunned") {   //Determine which abnormal state it belongs to
                         Pokemen_ai[enemy].controlled_abnormal_state += Pokemen[fighting_Pokemen].skill_level;
                     }
                     else if (Pokemen[fighting_Pokemen].skill_effect == "burn") {
@@ -495,18 +495,18 @@ void fight(vector<string>bag, vector<string>bag_ai) {
             }
             cout << "[Pokemon]=> " << Pokemen_ai[enemy].name << " HP: [" << Pokemen_ai[enemy].HP << "]" << endl;
         }
-        else if (Pokemen[fighting_Pokemen].controlled_abnormal_state > 0) { //这回合无法行动，将延续效果减少一回合
+        else if (Pokemen[fighting_Pokemen].controlled_abnormal_state > 0) { //Unable to act this turn, reduce the continuation effect by one turn
             cout << "[System]=> " << Pokemen[fighting_Pokemen].name << " enter a [" << Pokemen_ai[enemy].skill_effect << "] state, can't move in this round..." << endl;
             Pokemen[fighting_Pokemen].controlled_abnormal_state -= 1;
         }
 
 
-        //  判断精灵血量情况
+        //  Determining the HP of Pokémon
         if (!alive(Pokemen_ai, enemy)) {
             cout << "[System]=> [" << Pokemen_ai[enemy].name << "] is out of Vitality ! " << endl;
             bag_ai[choose_ai] = "";
         }
-        //  判断对局是否结束
+        //  Determine if the game is over
         if (lose(bag_ai)) {
             cout << "[System]=> " << "Congratulations ! You win !" << endl;
             cout << "#    #     #                  #     #             # " << endl;
@@ -526,10 +526,10 @@ void fight(vector<string>bag, vector<string>bag_ai) {
 
 
         //---------------------------------------------------------------------------------------------------------------------------------------------
-        //                                                                 AI 的攻击回合
+        //                                                                 AI's attack rounds
         cout << "[System]=> " << "Opponent's turn !" << endl;
-        //  判定阶段
-        if (Pokemen_ai[enemy].harmful_abnormal_state > 0) { // 判断是否处于伤害异常状态
+        //  Judgment phase
+        if (Pokemen_ai[enemy].harmful_abnormal_state > 0) { // Determine whether the damage is in an abnormal state
             cout << "[System]=> " << Pokemen_ai[enemy].name << " enter a [" << Pokemen[fighting_Pokemen].skill_effect << "] state, will suffer [20] damage per round..." << endl;
             cout << "[System]=> " << Pokemen_ai[enemy].name << " is suffering from [" << Pokemen[fighting_Pokemen].skill_effect << "] ,HP: - [20]" << endl;
             Pokemen_ai[enemy].HP -= 20;
@@ -537,12 +537,12 @@ void fight(vector<string>bag, vector<string>bag_ai) {
 
             Pokemen_ai[enemy].harmful_abnormal_state -= 1;
         }
-        if (!alive(Pokemen_ai, enemy)) { //判断ai精灵是否还存活
+        if (!alive(Pokemen_ai, enemy)) { //Determine if ai Pokémon is still alive
             cout << "[System]=> [" << Pokemen_ai[enemy].name << "] is out of Vitality ! " << endl;
             bag_ai[choose_ai] = "";
         }
 
-        //  判断对局是否结束
+        //  Determine if the game is over
         if (lose(bag_ai)) {
             cout << "[System]=> " << "Congratulations ! You win !" << endl;
             cout << endl;
@@ -557,56 +557,56 @@ void fight(vector<string>bag, vector<string>bag_ai) {
             Sleep(5000);
             break;
         }
-        // 切换精灵
+        // Switching Pokémon
         while (bag_ai[choose_ai] == "") {
             int* temp = new int();
             *temp = choose_ai;
-            choose_ai = (rand() % 2);//攻击的ai 必须还是存活状态
+            choose_ai = (rand() % 2);//The attacking ai must still be alive
             while (choose_ai == *temp) {
                 choose_ai = (rand() % 2);
             }
             delete temp;
-            enemy = Search(Pokemen_ai, bag_ai[choose_ai]);//获取ai重新选择的精灵的数据
+            enemy = Search(Pokemen_ai, bag_ai[choose_ai]);//Get the data of ai reselected Pokémon
         }
-        //  出招阶段
-        //  判断精灵状态
-        if (Pokemen_ai[enemy].controlled_abnormal_state == 0) {   // 判断精灵是否处于无法行动状态
+        //   Stroke stage
+        //  Determining the status of Pokémon
+        if (Pokemen_ai[enemy].controlled_abnormal_state == 0) {   
             cout << "[System]=> [" << bag_ai[choose_ai] << "] is ready to fight!" << endl;
 
             int AI_attack_choose = 0;
-            if (Pokemen_ai[enemy].skill != "None") { // 判断ai有没有技能
+            if (Pokemen_ai[enemy].skill != "None") { // Determine if ai has skills
                 AI_attack_choose = rand() % 2;
             }
-            if (AI_attack_choose == 0) { // ai使用普通攻击
+            if (AI_attack_choose == 0) { // ai using normal attack
                 cout << "[System]=> [" << bag_ai[choose_ai] << "] is going to attack [" << bag[name] << "] !" << endl;
 
-                cout << "[System]=> [" << bag_ai[choose_ai] << "] does [" << Pokemen_ai[enemy].attack - Pokemen[fighting_Pokemen].defense << "] damage to [" << bag[name] << "] !" << endl;         //两句合一句
+                cout << "[System]=> [" << bag_ai[choose_ai] << "] does [" << Pokemen_ai[enemy].attack - Pokemen[fighting_Pokemen].defense << "] damage to [" << bag[name] << "] !" << endl;   
                 //cout << bag[name] << " has been attacked!" << endl;
-                if (Pokemen[fighting_Pokemen].defense < Pokemen_ai[enemy].attack) { //判断玩家精灵防御是否比AI攻击力高
-                    Pokemen[fighting_Pokemen].HP -= (Pokemen_ai[enemy].attack - Pokemen[fighting_Pokemen].defense);//根据公式扣除玩家精灵的血量
+                if (Pokemen[fighting_Pokemen].defense < Pokemen_ai[enemy].attack) { //Determine if player Pokémon defense is higher than AI attack power
+                    Pokemen[fighting_Pokemen].HP -= (Pokemen_ai[enemy].attack - Pokemen[fighting_Pokemen].defense);
                 }
                 else {
                     Pokemen[fighting_Pokemen].HP -= 0;
                     cout << "[System]=> " << "Attack seems not effective..." << endl;
                 }
             }
-            //   如果ai选择使用技能
+            //   If ai chooses to use the skill
             else if (AI_attack_choose == 1) {
                 cout << "[System]=> [" << bag_ai[choose_ai] << "] uses " << Pokemen_ai[enemy].skill << " !" << endl;
 
-                cout << "[System]=> [" << bag_ai[choose_ai] << "] does [" << Pokemen_ai[enemy].skill_attack - Pokemen[fighting_Pokemen].defense << "] damage to [" << Pokemen[fighting_Pokemen].name << " !" << endl;  //两句合一句
+                cout << "[System]=> [" << bag_ai[choose_ai] << "] does [" << Pokemen_ai[enemy].skill_attack - Pokemen[fighting_Pokemen].defense << "] damage to [" << Pokemen[fighting_Pokemen].name << " !" << endl; 
                 //cout << Pokemen[fighting_Pokemen].name << " has been attacked!" << endl;
                 if (Pokemen[fighting_Pokemen].defense < Pokemen_ai[enemy].skill_attack) {
-                    Pokemen[fighting_Pokemen].HP -= (Pokemen_ai[enemy].skill_attack - Pokemen[fighting_Pokemen].defense); //根据公式扣血
+                    Pokemen[fighting_Pokemen].HP -= (Pokemen_ai[enemy].skill_attack - Pokemen[fighting_Pokemen].defense);
                 }
                 else {
                     Pokemen[fighting_Pokemen].HP -= 0;
                     cout << "[System]=> " << "Attack seems not effective..." << endl;
                 }
-                //   判定ai技能的效果有没有生效
+                //   Determine whether the effect of the ai skill is in effect
                 int temp_possible_affect_2 = rand() % (100 + 50 * Pokemen_ai[enemy].skill_level);
-                if (temp_possible_affect_2 <= 50) {     //概率使对方中异常状态
-                    if (Pokemen_ai[enemy].skill_effect == "stunned") {   //判断属于哪种异常状态
+                if (temp_possible_affect_2 <= 50) {     //Probability of causing the opponent to have an abnormal status
+                    if (Pokemen_ai[enemy].skill_effect == "stunned") {   //Determine which abnormal state it belongs to
                         Pokemen[fighting_Pokemen].controlled_abnormal_state += Pokemen_ai[enemy].skill_level;
                     }
                     else if (Pokemen_ai[enemy].skill_effect == "burn") {
@@ -620,18 +620,18 @@ void fight(vector<string>bag, vector<string>bag_ai) {
 
             cout << "[Pokemon]=> " << Pokemen[fighting_Pokemen].name << " HP: [" << Pokemen[fighting_Pokemen].HP << "]" << endl;
         }
-        else if (Pokemen_ai[enemy].controlled_abnormal_state > 0) { //这回合无法行动，将延续效果减少一回合
+        else if (Pokemen_ai[enemy].controlled_abnormal_state > 0) { //Unable to act this turn, reduce the continuation effect by one turn
             cout << "[System]=> [" << Pokemen_ai[enemy].name << "] enter a " << Pokemen[fighting_Pokemen].skill_effect << " state, can't make a move this round..." << endl;
             Pokemen_ai[enemy].controlled_abnormal_state -= 1;
         }
 
 
-        //  判断精灵血量情况
+        //  Determining the HP level of Pokémon
         if (!alive(Pokemen, fighting_Pokemen)) {
             cout << "[System]=> [" << Pokemen[fighting_Pokemen].name << "] is out of Vitality ! " << endl;
             bag[name] = "";
         }
-        //  判断对局是否结束
+        //  Determine if the game is over
         if (lose(bag)) {
             cout << "[System]=> " << endl << "You lose, good try...";
             Sleep(5000);
@@ -646,11 +646,11 @@ void fight(vector<string>bag, vector<string>bag_ai) {
 int main_battle() {
     srand((unsigned)time(NULL));
     int input_num;
-    int AI_input_num; // 判定ai精灵池里有几只精灵
+    int AI_input_num; // Determine how many Pokémons are in the ai Pokémons pool
 
     switch (level_count) {
         case int(1) :
-            input_num = Player_input(); //读取玩家精灵数据，并读取一共有多少只
+            input_num = Player_input(); //Retrieve player Pokémons data and read how many there are in total
             cout << "[System]=> " << "Welcome to first gym. The battle is about to begin, get ready !!" << endl;
             AI_input_num = Level_1_input();
             Sleep(1000);
@@ -669,8 +669,8 @@ int main_battle() {
                     Sleep(1000);
                     break;
                     case int(4) :
-                        //结束故事
-                        cout << "[System]=> " << endl; //   结束故事
+                        //End Story
+                        cout << "[System]=> " << endl; //   End Story
                         cout << "Finally...";
                         Sleep(1000);
                         cout << "the day has arrived.";
@@ -686,15 +686,15 @@ int main_battle() {
     }
     string name;
     int choose_num;
-    vector<string> bag;//个人背包
-    for (int j = 0; j < 2; j++) {//选两次
+    vector<string> bag;//Personal Backpack
+    for (int j = 0; j < 2; j++) {//Select twice
 
-        char backpack_choose = 'N'; // 是否确定将精灵放入背包变量
-        while (backpack_choose != 'Y') { //查看精灵属性，并选择是否确定将精灵放入出战背包
+        char backpack_choose = 'N'; // Determine if it is OK to put the Pokémon in the backpack variable
+        while (backpack_choose != 'Y') { //Check the properties of the Pokémon and choose whether or not to place the Pokémon in the battle pack
             system("cls");
             cout << "[PokeBag]: ";
 
-            for (vector<string>::iterator i = bag.begin(); i != bag.end(); i++) { // 显示背包的精灵
+            for (vector<string>::iterator i = bag.begin(); i != bag.end(); i++) { // Show backpack
                 cout << *i << " ";
             }
             cout << endl;
