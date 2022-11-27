@@ -8,17 +8,17 @@
 #include <stdlib.h>
 using namespace std;
 
-void rest() { //ÃÀ»¯
+void rest() { //Beautification
     cout << endl;
     for (int i = 0; i < 10; i++) {
         cout << "-";
     }
     cout << endl;
-    cout << endl; //¶à»»Ò»ĞĞ -XX
+    cout << endl; 
 }
 
 
-struct Pokemens {//Íæ¼Ò¾«ÁéÊı¾İ¿â
+struct Pokemens {//Player Genie Database
     string name;
     int HP;
     int attack;
@@ -32,7 +32,7 @@ struct Pokemens {//Íæ¼Ò¾«ÁéÊı¾İ¿â
     int harmful_abnormal_state = 0;
 };
 
-struct Pokemen_ai {//aiÊı¾İ¿â
+struct Pokemen_ai {//ai database
     string name;
     int HP;
     int attack;
@@ -46,8 +46,8 @@ struct Pokemen_ai {//aiÊı¾İ¿â
     int harmful_abnormal_state = 0;
 };
 
-int Search(Pokemens animal[], string name) {//ÕÒµ½nameÔÚarrayÀïµÄÎ»ÖÃ ÒÔ±ã»ñÈ¡arrayÆäËûµÄĞÅÏ¢
-    for (int i = 0; i < 5; i++) {            //¾«ÁéÊıÁ¿ĞŞ¸ÄÎ»ÖÃ
+int Search(Pokemens animal[], string name) {//æ‰¾åˆ°nameåœ¨arrayé‡Œçš„ä½ç½® ä»¥ä¾¿è·å–arrayå…¶ä»–çš„ä¿¡æ¯
+    for (int i = 0; i < 5; i++) {            //ç²¾çµæ•°é‡ä¿®æ”¹ä½ç½®
         if (name == animal[i].name) {
             return i;
         }
@@ -56,17 +56,17 @@ int Search(Pokemens animal[], string name) {//ÕÒµ½nameÔÚarrayÀïµÄÎ»ÖÃ ÒÔ±ã»ñÈ¡ar
 }
 
 
-Pokemens Pokemen[20]; //Íæ¼ÒµÄ¾«ÁéÊı¾İ¿â
-Pokemens Pokemen_ai[10]; //AI µÄ¾«ÁéÊı¾İ¿â
+Pokemens Pokemen[20]; //ç©å®¶çš„ç²¾çµæ•°æ®åº“
+Pokemens Pokemen_ai[10]; //AI çš„ç²¾çµæ•°æ®åº“
 
-//  Ôö¼ÓÁËÁ½¸öai ÒÑ²¹³ä-XX 
+//  å¢åŠ äº†ä¸¤ä¸ªai å·²è¡¥å……-XX 
 int Level_1_input() {
     level_1_AI_1 Plusle_AI;
     level_1_AI_2 Arbok_AI;
     level_1_AI_3 Nidoqueen_AI;
     level_1_AI_4 Nidorino_AI;
 
-    Pokemen_ai[0].name = Plusle_AI.name;//°ÑclassÀïµÄÊı¾İ·Åµ½ai animalsÀï
+    Pokemen_ai[0].name = Plusle_AI.name;//æŠŠclassé‡Œçš„æ•°æ®æ”¾åˆ°ai animalsé‡Œ
     Pokemen_ai[0].HP = Plusle_AI.HP;
     Pokemen_ai[0].attack = Plusle_AI.attack;
     Pokemen_ai[0].defense = Plusle_AI.defense;
@@ -92,7 +92,7 @@ int Level_1_input() {
     return 4;
 }
 
-//µÀ¹İ2µÄai¾«Áé³Ø ÒÑ²¹³ä-XX 
+//é“é¦†2çš„aiç²¾çµæ±  å·²è¡¥å……-XX 
 int Level_2_input() {
     level_2_AI_1 Muk_AI;
     level_2_AI_2 Seel_AI;
@@ -190,7 +190,7 @@ int Level_3_input() {
     return 4;
 }
 
-// µÀ¹İ1 Íæ¼Ò¾«Áé³Ø ÒÑ²¹³ä-XX
+// é“é¦†1 ç©å®¶ç²¾çµæ±  å·²è¡¥å……-XX
 int Player_input() {
     initial_pig_1 Pikachu;
     initial_pig_2 Bulbasaur;
@@ -252,8 +252,8 @@ int Player_input() {
     return 5;
 }
 
-// µÀ¹İ2 Íæ¼Ò¾«Áé³Ø ÒÑ²¹³ä-XX
-int level_2_addable_pig_input() { //µÚÒ»¸öµÀ¹İ½áÊøµÄaddable
+// é“é¦†2 ç©å®¶ç²¾çµæ±  å·²è¡¥å……-XX
+int level_2_addable_pig_input() { //ç¬¬ä¸€ä¸ªé“é¦†ç»“æŸçš„addable
     addable_pig_1 Manectric;
     addable_pig_2 Electrike;
     addable_pig_3 Charmander;
@@ -350,14 +350,14 @@ int level_3_addable_pig_input() {
     return 4;
 }
 
-bool alive(Pokemens animal[], int index) {//ÅĞ¶ÏÉúÃüÖµ
+bool alive(Pokemens animal[], int index) {//åˆ¤æ–­ç”Ÿå‘½å€¼
     if (animal[index].HP > 0) {
         return true;
     }
     return false;
 }
 
-bool lose(vector<string>bag) {//Ê¤ÀûÌõ¼şÊÇbagÀïµÄ¾«Áé¶¼ËÀÁË
+bool lose(vector<string>bag) {//èƒœåˆ©æ¡ä»¶æ˜¯bagé‡Œçš„ç²¾çµéƒ½æ­»äº†
     for (int i = 0; i < bag.size(); i++) {
         if (bag[i] != "") {
             return false;
@@ -366,13 +366,13 @@ bool lose(vector<string>bag) {//Ê¤ÀûÌõ¼şÊÇbagÀïµÄ¾«Áé¶¼ËÀÁË
     return true;
 }
 
-int level_count = 1;  //ÅĞ¶Ï´òµ½µÚ¼¸¸öµÀ¹İÁË
+int level_count = 1;  //åˆ¤æ–­æ‰“åˆ°ç¬¬å‡ ä¸ªé“é¦†äº†
 
 void fight(vector<string>bag, vector<string>bag_ai) {
     srand((unsigned)time(NULL));
     int name;
     cout << "[System]=> " << "Now choose your Pokemens to fight: " << endl;
-    cout << "[System]=> " << "Your Pokemens: " << endl;             //+»»ĞĞ -XX
+    cout << "[System]=> " << "Your Pokemens: " << endl;             //+æ¢è¡Œ -XX
     cout << "[PokeBag]=> " << endl;
     for (int i = 0; i < bag.size(); i++) {
         cout << "[" << i << "]" << " ===> " << bag[i] << "\n";
@@ -380,7 +380,7 @@ void fight(vector<string>bag, vector<string>bag_ai) {
     //cout << endl;
     cin >> name;
     while (name<0 || name>bag.size()) {
-        cout << "[System]=> " << "Your Pokemens: " << endl;             //+»»ĞĞ -XX
+        cout << "[System]=> " << "Your Pokemens: " << endl;             //+æ¢è¡Œ -XX
         cout << "[PokeBag]=> " << endl;
         cin >> name;
     }
@@ -389,16 +389,16 @@ void fight(vector<string>bag, vector<string>bag_ai) {
     cout << "[System]=> [" << bag[name] << "] is ready to fight!" << endl;
     string pname = bag[name];
 
-    int choose_ai = (rand() % 1);  //AI Ñ¡Ôñ³öÕ½µÄ¾«Áé
+    int choose_ai = (rand() % 1);  //AI é€‰æ‹©å‡ºæˆ˜çš„ç²¾çµ
     cout << "[System]=> " << "Opponent sent [" << bag_ai[choose_ai] << "] to against your Pokemon !" << endl;
-    int enemy = Search(Pokemen_ai, bag_ai[choose_ai]);//»ñÈ¡aiÑ¡ÔñµÄ¾«ÁéµÄÊı¾İ
-    int fighting_Pokemen = Search(Pokemen, pname);//»ñÈ¡×Ô¼º¾«ÁéµÄÊı¾İ
+    int enemy = Search(Pokemen_ai, bag_ai[choose_ai]);//è·å–aié€‰æ‹©çš„ç²¾çµçš„æ•°æ®
+    int fighting_Pokemen = Search(Pokemen, pname);//è·å–è‡ªå·±ç²¾çµçš„æ•°æ®
 
     while (true) {
         while (bag[name] == "") {
             int* temp = new int();
             *temp = name;
-            name = (rand() % 2);//Íæ¼ÒµÄ¾«Áé±ØĞëÊÇ´æ»î×´Ì¬
+            name = (rand() % 2);//ç©å®¶çš„ç²¾çµå¿…é¡»æ˜¯å­˜æ´»çŠ¶æ€
             while (name == *temp) {
                 name = (rand() % 2);
             }
@@ -407,8 +407,8 @@ void fight(vector<string>bag, vector<string>bag_ai) {
 
         }
 
-        //        ÅĞ¶¨½×¶Î
-        if (Pokemen[fighting_Pokemen].harmful_abnormal_state > 0) { // ÅĞ¶ÏÊÇ·ñ´¦ÓÚÉËº¦Òì³£×´Ì¬
+        //        åˆ¤å®šé˜¶æ®µ
+        if (Pokemen[fighting_Pokemen].harmful_abnormal_state > 0) { // åˆ¤æ–­æ˜¯å¦å¤„äºä¼¤å®³å¼‚å¸¸çŠ¶æ€
             cout << "[System]=> [" << Pokemen[fighting_Pokemen].name << "] enter a [" << Pokemen_ai[enemy].skill_effect << "] state, will suffer [20] damage per round !" << endl;
             cout << "[System]=> [" << Pokemen[fighting_Pokemen].name << "] HP: - [20]" << endl;
             Pokemen[fighting_Pokemen].HP -= 20;
@@ -417,22 +417,22 @@ void fight(vector<string>bag, vector<string>bag_ai) {
             Pokemen[fighting_Pokemen].harmful_abnormal_state -= 1;
         }
 
-        //  ÅĞ¶Ï¾«ÁéÑªÁ¿Çé¿ö
+        //  åˆ¤æ–­ç²¾çµè¡€é‡æƒ…å†µ
         if (!alive(Pokemen, fighting_Pokemen)) {
             cout << "[System]=> [" << Pokemen[fighting_Pokemen].name << "] is out of Vitality ! " << endl;
             bag[name] = "";
         }
-        //  ÅĞ¶Ï¶Ô¾ÖÊÇ·ñ½áÊø
+        //  åˆ¤æ–­å¯¹å±€æ˜¯å¦ç»“æŸ
         if (lose(bag)) {
             cout << "[System]=> You lose, good try...";
             Sleep(5000);
             break;
         }
-        //  ÇĞ»»¾«Áé
+        //  åˆ‡æ¢ç²¾çµ
         while (bag[name] == "") {
             int* temp = new int();
             *temp = name;
-            name = (rand() % 2);//Íæ¼ÒµÄ¾«Áé±ØĞëÊÇ´æ»î×´Ì¬
+            name = (rand() % 2);//ç©å®¶çš„ç²¾çµå¿…é¡»æ˜¯å­˜æ´»çŠ¶æ€
             while (name == *temp) {
                 name = (rand() % 2);
             }
@@ -441,12 +441,12 @@ void fight(vector<string>bag, vector<string>bag_ai) {
             cout << "[System]=> [" << Pokemen[fighting_Pokemen].name << "] is ready to fight" << endl;
         }
 
-        //          ³öÕĞ½×¶Î
+        //          å‡ºæ‹›é˜¶æ®µ
         if (Pokemen[fighting_Pokemen].controlled_abnormal_state == 0) {
             cout << "    ---------------------------------------------------------------" << endl;
-            cout << "   | Your Pokemon's HP: [" << Pokemen[fighting_Pokemen].HP << "]" << "   |   " << "Opponent's Pokemon's HP: [" << Pokemen_ai[enemy].HP << "] |" << endl;           //³öÕĞÊ±ºòÏÔÊ¾HP -XX
+            cout << "   | Your Pokemon's HP: [" << Pokemen[fighting_Pokemen].HP << "]" << "   |   " << "Opponent's Pokemon's HP: [" << Pokemen_ai[enemy].HP << "] |" << endl;           //å‡ºæ‹›æ—¶å€™æ˜¾ç¤ºHP -XX
             cout << "    ---------------------------------------------------------------" << endl;
-            cout << "[System]=> " << "What should [" << Pokemen[fighting_Pokemen].name << "] do ?" << endl;   //Ñ¡Ôñ¹¥»÷·½Ê½  ¼ÓÈëÁË±¦¿ÉÃÎÃû×ÖÏÔÊ¾-XX
+            cout << "[System]=> " << "What should [" << Pokemen[fighting_Pokemen].name << "] do ?" << endl;   //é€‰æ‹©æ”»å‡»æ–¹å¼  åŠ å…¥äº†å®å¯æ¢¦åå­—æ˜¾ç¤º-XX
             cout << "[Pokemon]=> \n" << "1 ===> " << "[Normal Attack] \n" << "2 +++> [" << Pokemen[fighting_Pokemen].skill << "]" << endl;
             int attack_choose;
             cin >> attack_choose;
@@ -456,34 +456,34 @@ void fight(vector<string>bag, vector<string>bag_ai) {
             }
             Sleep(500);
 
-            if (attack_choose == 1) { //Ê¹ÓÃÆÕÍ¨¹¥»÷Ê±µÄÉËº¦¼ÆËã
-                system("cls"); //Ñ¡Íê¼¼ÄÜÕ½¶·ÇåÆÁ -XX
+            if (attack_choose == 1) { //ä½¿ç”¨æ™®é€šæ”»å‡»æ—¶çš„ä¼¤å®³è®¡ç®—
+                system("cls"); //é€‰å®ŒæŠ€èƒ½æˆ˜æ–—æ¸…å± -XX
                 cout << "[System]=> " << "Go ! [" << bag[name] << "] , use [Normal Attack] !" << endl;
-                cout << "[System]=> [" << bag[name] << "] does [" << Pokemen[fighting_Pokemen].attack - Pokemen_ai[enemy].defense << "] damage to [" << Pokemen_ai[enemy].name << "] !" << endl;  //Á½¾ä»¯³ÉÒ»¾ä -XX
+                cout << "[System]=> [" << bag[name] << "] does [" << Pokemen[fighting_Pokemen].attack - Pokemen_ai[enemy].defense << "] damage to [" << Pokemen_ai[enemy].name << "] !" << endl;  //ä¸¤å¥åŒ–æˆä¸€å¥ -XX
                 //cout << Pokemen_ai[enemy].name << " has been attacked!" << endl;
-                if (Pokemen_ai[enemy].defense < Pokemen[fighting_Pokemen].attack) { //ÅĞ¶ÏAI¾«Áé·ÀÓùÁ¦ÊÇ·ñ±ÈÍæ¼Ò¾«Áé¹¥»÷Á¦¸ß
-                    Pokemen_ai[enemy].HP -= (Pokemen[fighting_Pokemen].attack - Pokemen_ai[enemy].defense);//¸ù¾İ¹«Ê½¿Û³ıai±»¹¥»÷·½µÄÑªÁ¿
+                if (Pokemen_ai[enemy].defense < Pokemen[fighting_Pokemen].attack) { //åˆ¤æ–­AIç²¾çµé˜²å¾¡åŠ›æ˜¯å¦æ¯”ç©å®¶ç²¾çµæ”»å‡»åŠ›é«˜
+                    Pokemen_ai[enemy].HP -= (Pokemen[fighting_Pokemen].attack - Pokemen_ai[enemy].defense);//æ ¹æ®å…¬å¼æ‰£é™¤aiè¢«æ”»å‡»æ–¹çš„è¡€é‡
                 }
                 else {
                     Pokemen_ai[enemy].HP -= 0;
                     cout << "[System]=> " << "Attack seems not effective..." << endl;
                 }
             }
-            if (attack_choose == 2) { //Ê¹ÓÃ¼¼ÄÜ¹¥»÷Ê±
-                system("cls"); //Ñ¡Íê¼¼ÄÜÕ½¶·ÇåÆÁ -XX
+            if (attack_choose == 2) { //ä½¿ç”¨æŠ€èƒ½æ”»å‡»æ—¶
+                system("cls"); //é€‰å®ŒæŠ€èƒ½æˆ˜æ–—æ¸…å± -XX
                 cout << "[System]=> " << "Go ! [" << bag[name] << "] use [" << Pokemen[fighting_Pokemen].skill << "] !" << endl;
-                cout << "[System]=> [" << bag[name] << "] does [" << Pokemen[fighting_Pokemen].skill_attack - Pokemen_ai[enemy].defense << "] damage to [" << Pokemen_ai[enemy].name << "] !" << endl;  //Á½¾ä»¯³ÉÒ»¾ä -XX
+                cout << "[System]=> [" << bag[name] << "] does [" << Pokemen[fighting_Pokemen].skill_attack - Pokemen_ai[enemy].defense << "] damage to [" << Pokemen_ai[enemy].name << "] !" << endl;  //ä¸¤å¥åŒ–æˆä¸€å¥ -XX
                 //cout << Pokemen_ai[enemy].name << " has been attacked!" << endl;
                 if (Pokemen_ai[enemy].defense < Pokemen[fighting_Pokemen].skill_attack) {
-                    Pokemen_ai[enemy].HP -= (Pokemen[fighting_Pokemen].skill_attack - Pokemen_ai[enemy].defense); //¸ù¾İ¹«Ê½¿ÛÑª
+                    Pokemen_ai[enemy].HP -= (Pokemen[fighting_Pokemen].skill_attack - Pokemen_ai[enemy].defense); //æ ¹æ®å…¬å¼æ‰£è¡€
                 }
                 else {
                     cout << "[System]=> " << "Attack seems not effective..." << endl;
                 }
 
                 int temp_possible_affect_1 = rand() % (100 + 50 * Pokemen[fighting_Pokemen].skill_level);
-                if (temp_possible_affect_1 <= 50) {     //¸ÅÂÊÊ¹¶Ô·½ÖĞÒì³£×´Ì¬
-                    if (Pokemen[fighting_Pokemen].skill_effect == "stunned") {   //ÅĞ¶ÏÊôÓÚÄÄÖÖÒì³£×´Ì¬
+                if (temp_possible_affect_1 <= 50) {     //æ¦‚ç‡ä½¿å¯¹æ–¹ä¸­å¼‚å¸¸çŠ¶æ€
+                    if (Pokemen[fighting_Pokemen].skill_effect == "stunned") {   //åˆ¤æ–­å±äºå“ªç§å¼‚å¸¸çŠ¶æ€
                         Pokemen_ai[enemy].controlled_abnormal_state += Pokemen[fighting_Pokemen].skill_level;
                     }
                     else if (Pokemen[fighting_Pokemen].skill_effect == "burn") {
@@ -495,18 +495,18 @@ void fight(vector<string>bag, vector<string>bag_ai) {
             }
             cout << "[Pokemon]=> " << Pokemen_ai[enemy].name << " HP: [" << Pokemen_ai[enemy].HP << "]" << endl;
         }
-        else if (Pokemen[fighting_Pokemen].controlled_abnormal_state > 0) { //Õâ»ØºÏÎŞ·¨ĞĞ¶¯£¬½«ÑÓĞøĞ§¹û¼õÉÙÒ»»ØºÏ
+        else if (Pokemen[fighting_Pokemen].controlled_abnormal_state > 0) { //è¿™å›åˆæ— æ³•è¡ŒåŠ¨ï¼Œå°†å»¶ç»­æ•ˆæœå‡å°‘ä¸€å›åˆ
             cout << "[System]=> " << Pokemen[fighting_Pokemen].name << " enter a [" << Pokemen_ai[enemy].skill_effect << "] state, can't move in this round..." << endl;
             Pokemen[fighting_Pokemen].controlled_abnormal_state -= 1;
         }
 
 
-        //  ÅĞ¶Ï¾«ÁéÑªÁ¿Çé¿ö
+        //  åˆ¤æ–­ç²¾çµè¡€é‡æƒ…å†µ
         if (!alive(Pokemen_ai, enemy)) {
             cout << "[System]=> [" << Pokemen_ai[enemy].name << "] is out of Vitality ! " << endl;
             bag_ai[choose_ai] = "";
         }
-        //  ÅĞ¶Ï¶Ô¾ÖÊÇ·ñ½áÊø
+        //  åˆ¤æ–­å¯¹å±€æ˜¯å¦ç»“æŸ
         if (lose(bag_ai)) {
             cout << "[System]=> " << "Congratulations ! You win !" << endl;
             cout << "#    #     #                  #     #             # " << endl;
@@ -526,10 +526,10 @@ void fight(vector<string>bag, vector<string>bag_ai) {
 
 
         //---------------------------------------------------------------------------------------------------------------------------------------------
-        //                                                                 AI µÄ¹¥»÷»ØºÏ
+        //                                                                 AI çš„æ”»å‡»å›åˆ
         cout << "[System]=> " << "Opponent's turn !" << endl;
-        //  ÅĞ¶¨½×¶Î
-        if (Pokemen_ai[enemy].harmful_abnormal_state > 0) { // ÅĞ¶ÏÊÇ·ñ´¦ÓÚÉËº¦Òì³£×´Ì¬
+        //  åˆ¤å®šé˜¶æ®µ
+        if (Pokemen_ai[enemy].harmful_abnormal_state > 0) { // åˆ¤æ–­æ˜¯å¦å¤„äºä¼¤å®³å¼‚å¸¸çŠ¶æ€
             cout << "[System]=> " << Pokemen_ai[enemy].name << " enter a [" << Pokemen[fighting_Pokemen].skill_effect << "] state, will suffer [20] damage per round..." << endl;
             cout << "[System]=> " << Pokemen_ai[enemy].name << " is suffering from [" << Pokemen[fighting_Pokemen].skill_effect << "] ,HP: - [20]" << endl;
             Pokemen_ai[enemy].HP -= 20;
@@ -537,12 +537,12 @@ void fight(vector<string>bag, vector<string>bag_ai) {
 
             Pokemen_ai[enemy].harmful_abnormal_state -= 1;
         }
-        if (!alive(Pokemen_ai, enemy)) { //ÅĞ¶Ïai¾«ÁéÊÇ·ñ»¹´æ»î
+        if (!alive(Pokemen_ai, enemy)) { //åˆ¤æ–­aiç²¾çµæ˜¯å¦è¿˜å­˜æ´»
             cout << "[System]=> [" << Pokemen_ai[enemy].name << "] is out of Vitality ! " << endl;
             bag_ai[choose_ai] = "";
         }
 
-        //  ÅĞ¶Ï¶Ô¾ÖÊÇ·ñ½áÊø
+        //  åˆ¤æ–­å¯¹å±€æ˜¯å¦ç»“æŸ
         if (lose(bag_ai)) {
             cout << "[System]=> " << "Congratulations ! You win !" << endl;
             cout << endl;
@@ -557,56 +557,56 @@ void fight(vector<string>bag, vector<string>bag_ai) {
             Sleep(5000);
             break;
         }
-        // ÇĞ»»¾«Áé
+        // åˆ‡æ¢ç²¾çµ
         while (bag_ai[choose_ai] == "") {
             int* temp = new int();
             *temp = choose_ai;
-            choose_ai = (rand() % 2);//¹¥»÷µÄai ±ØĞë»¹ÊÇ´æ»î×´Ì¬
+            choose_ai = (rand() % 2);//æ”»å‡»çš„ai å¿…é¡»è¿˜æ˜¯å­˜æ´»çŠ¶æ€
             while (choose_ai == *temp) {
                 choose_ai = (rand() % 2);
             }
             delete temp;
-            enemy = Search(Pokemen_ai, bag_ai[choose_ai]);//»ñÈ¡aiÖØĞÂÑ¡ÔñµÄ¾«ÁéµÄÊı¾İ
+            enemy = Search(Pokemen_ai, bag_ai[choose_ai]);//è·å–aié‡æ–°é€‰æ‹©çš„ç²¾çµçš„æ•°æ®
         }
-        //  ³öÕĞ½×¶Î
-        //  ÅĞ¶Ï¾«Áé×´Ì¬
-        if (Pokemen_ai[enemy].controlled_abnormal_state == 0) {   // ÅĞ¶Ï¾«ÁéÊÇ·ñ´¦ÓÚÎŞ·¨ĞĞ¶¯×´Ì¬
+        //  å‡ºæ‹›é˜¶æ®µ
+        //  åˆ¤æ–­ç²¾çµçŠ¶æ€
+        if (Pokemen_ai[enemy].controlled_abnormal_state == 0) {   // åˆ¤æ–­ç²¾çµæ˜¯å¦å¤„äºæ— æ³•è¡ŒåŠ¨çŠ¶æ€
             cout << "[System]=> [" << bag_ai[choose_ai] << "] is ready to fight!" << endl;
 
             int AI_attack_choose = 0;
-            if (Pokemen_ai[enemy].skill != "None") { // ÅĞ¶ÏaiÓĞÃ»ÓĞ¼¼ÄÜ
+            if (Pokemen_ai[enemy].skill != "None") { // åˆ¤æ–­aiæœ‰æ²¡æœ‰æŠ€èƒ½
                 AI_attack_choose = rand() % 2;
             }
-            if (AI_attack_choose == 0) { // aiÊ¹ÓÃÆÕÍ¨¹¥»÷
+            if (AI_attack_choose == 0) { // aiä½¿ç”¨æ™®é€šæ”»å‡»
                 cout << "[System]=> [" << bag_ai[choose_ai] << "] is going to attack [" << bag[name] << "] !" << endl;
 
-                cout << "[System]=> [" << bag_ai[choose_ai] << "] does [" << Pokemen_ai[enemy].attack - Pokemen[fighting_Pokemen].defense << "] damage to [" << bag[name] << "] !" << endl;         //Á½¾äºÏÒ»¾ä
+                cout << "[System]=> [" << bag_ai[choose_ai] << "] does [" << Pokemen_ai[enemy].attack - Pokemen[fighting_Pokemen].defense << "] damage to [" << bag[name] << "] !" << endl;         //ä¸¤å¥åˆä¸€å¥
                 //cout << bag[name] << " has been attacked!" << endl;
-                if (Pokemen[fighting_Pokemen].defense < Pokemen_ai[enemy].attack) { //ÅĞ¶ÏÍæ¼Ò¾«Áé·ÀÓùÊÇ·ñ±ÈAI¹¥»÷Á¦¸ß
-                    Pokemen[fighting_Pokemen].HP -= (Pokemen_ai[enemy].attack - Pokemen[fighting_Pokemen].defense);//¸ù¾İ¹«Ê½¿Û³ıÍæ¼Ò¾«ÁéµÄÑªÁ¿
+                if (Pokemen[fighting_Pokemen].defense < Pokemen_ai[enemy].attack) { //åˆ¤æ–­ç©å®¶ç²¾çµé˜²å¾¡æ˜¯å¦æ¯”AIæ”»å‡»åŠ›é«˜
+                    Pokemen[fighting_Pokemen].HP -= (Pokemen_ai[enemy].attack - Pokemen[fighting_Pokemen].defense);//æ ¹æ®å…¬å¼æ‰£é™¤ç©å®¶ç²¾çµçš„è¡€é‡
                 }
                 else {
                     Pokemen[fighting_Pokemen].HP -= 0;
                     cout << "[System]=> " << "Attack seems not effective..." << endl;
                 }
             }
-            //   Èç¹ûaiÑ¡ÔñÊ¹ÓÃ¼¼ÄÜ
+            //   å¦‚æœaié€‰æ‹©ä½¿ç”¨æŠ€èƒ½
             else if (AI_attack_choose == 1) {
                 cout << "[System]=> [" << bag_ai[choose_ai] << "] uses " << Pokemen_ai[enemy].skill << " !" << endl;
 
-                cout << "[System]=> [" << bag_ai[choose_ai] << "] does [" << Pokemen_ai[enemy].skill_attack - Pokemen[fighting_Pokemen].defense << "] damage to [" << Pokemen[fighting_Pokemen].name << " !" << endl;  //Á½¾äºÏÒ»¾ä
+                cout << "[System]=> [" << bag_ai[choose_ai] << "] does [" << Pokemen_ai[enemy].skill_attack - Pokemen[fighting_Pokemen].defense << "] damage to [" << Pokemen[fighting_Pokemen].name << " !" << endl;  //ä¸¤å¥åˆä¸€å¥
                 //cout << Pokemen[fighting_Pokemen].name << " has been attacked!" << endl;
                 if (Pokemen[fighting_Pokemen].defense < Pokemen_ai[enemy].skill_attack) {
-                    Pokemen[fighting_Pokemen].HP -= (Pokemen_ai[enemy].skill_attack - Pokemen[fighting_Pokemen].defense); //¸ù¾İ¹«Ê½¿ÛÑª
+                    Pokemen[fighting_Pokemen].HP -= (Pokemen_ai[enemy].skill_attack - Pokemen[fighting_Pokemen].defense); //æ ¹æ®å…¬å¼æ‰£è¡€
                 }
                 else {
                     Pokemen[fighting_Pokemen].HP -= 0;
                     cout << "[System]=> " << "Attack seems not effective..." << endl;
                 }
-                //   ÅĞ¶¨ai¼¼ÄÜµÄĞ§¹ûÓĞÃ»ÓĞÉúĞ§
+                //   åˆ¤å®šaiæŠ€èƒ½çš„æ•ˆæœæœ‰æ²¡æœ‰ç”Ÿæ•ˆ
                 int temp_possible_affect_2 = rand() % (100 + 50 * Pokemen_ai[enemy].skill_level);
-                if (temp_possible_affect_2 <= 50) {     //¸ÅÂÊÊ¹¶Ô·½ÖĞÒì³£×´Ì¬
-                    if (Pokemen_ai[enemy].skill_effect == "stunned") {   //ÅĞ¶ÏÊôÓÚÄÄÖÖÒì³£×´Ì¬
+                if (temp_possible_affect_2 <= 50) {     //æ¦‚ç‡ä½¿å¯¹æ–¹ä¸­å¼‚å¸¸çŠ¶æ€
+                    if (Pokemen_ai[enemy].skill_effect == "stunned") {   //åˆ¤æ–­å±äºå“ªç§å¼‚å¸¸çŠ¶æ€
                         Pokemen[fighting_Pokemen].controlled_abnormal_state += Pokemen_ai[enemy].skill_level;
                     }
                     else if (Pokemen_ai[enemy].skill_effect == "burn") {
@@ -620,18 +620,18 @@ void fight(vector<string>bag, vector<string>bag_ai) {
 
             cout << "[Pokemon]=> " << Pokemen[fighting_Pokemen].name << " HP: [" << Pokemen[fighting_Pokemen].HP << "]" << endl;
         }
-        else if (Pokemen_ai[enemy].controlled_abnormal_state > 0) { //Õâ»ØºÏÎŞ·¨ĞĞ¶¯£¬½«ÑÓĞøĞ§¹û¼õÉÙÒ»»ØºÏ
+        else if (Pokemen_ai[enemy].controlled_abnormal_state > 0) { //è¿™å›åˆæ— æ³•è¡ŒåŠ¨ï¼Œå°†å»¶ç»­æ•ˆæœå‡å°‘ä¸€å›åˆ
             cout << "[System]=> [" << Pokemen_ai[enemy].name << "] enter a " << Pokemen[fighting_Pokemen].skill_effect << " state, can't make a move this round..." << endl;
             Pokemen_ai[enemy].controlled_abnormal_state -= 1;
         }
 
 
-        //  ÅĞ¶Ï¾«ÁéÑªÁ¿Çé¿ö
+        //  åˆ¤æ–­ç²¾çµè¡€é‡æƒ…å†µ
         if (!alive(Pokemen, fighting_Pokemen)) {
             cout << "[System]=> [" << Pokemen[fighting_Pokemen].name << "] is out of Vitality ! " << endl;
             bag[name] = "";
         }
-        //  ÅĞ¶Ï¶Ô¾ÖÊÇ·ñ½áÊø
+        //  åˆ¤æ–­å¯¹å±€æ˜¯å¦ç»“æŸ
         if (lose(bag)) {
             cout << "[System]=> " << endl << "You lose, good try...";
             Sleep(5000);
@@ -646,11 +646,11 @@ void fight(vector<string>bag, vector<string>bag_ai) {
 int main_battle() {
     srand((unsigned)time(NULL));
     int input_num;
-    int AI_input_num; // ÅĞ¶¨ai¾«Áé³ØÀïÓĞ¼¸Ö»¾«Áé
+    int AI_input_num; // åˆ¤å®šaiç²¾çµæ± é‡Œæœ‰å‡ åªç²¾çµ
 
     switch (level_count) {
         case int(1) :
-            input_num = Player_input(); //¶ÁÈ¡Íæ¼Ò¾«ÁéÊı¾İ£¬²¢¶ÁÈ¡Ò»¹²ÓĞ¶àÉÙÖ»
+            input_num = Player_input(); //è¯»å–ç©å®¶ç²¾çµæ•°æ®ï¼Œå¹¶è¯»å–ä¸€å…±æœ‰å¤šå°‘åª
             cout << "[System]=> " << "Welcome to first gym. The battle is about to begin, get ready !!" << endl;
             AI_input_num = Level_1_input();
             Sleep(1000);
@@ -669,46 +669,46 @@ int main_battle() {
                     Sleep(1000);
                     break;
                     case int(4) :
-                        //½áÊø¹ÊÊÂ
-                        cout << "[System]=> " << endl; //   ½áÊø¹ÊÊÂ
+                        //ç»“æŸæ•…äº‹
+                        cout << "[System]=> " << endl; //   ç»“æŸæ•…äº‹
                         cout << "Finally...";
                         Sleep(1000);
                         cout << "the day has arrived.";
-                        cout << "Standing on the top trainer ring, you successfully defeated the previous world champion of the Pok¨¦mon Contest.\n";
-                        cout << "Yes, you are now a veritable Pok¨¦mon Master.Youand your Pok¨¦mon deserve it all.\n";
-                        cout << "\"Congratulations!\", applause, screams, and words of congratulations are constantly heard from the stands to youand your Pok¨¦mon.\n";
+                        cout << "Standing on the top trainer ring, you successfully defeated the previous world champion of the PokÃ©mon Contest.\n";
+                        cout << "Yes, you are now a veritable PokÃ©mon Master.Youand your PokÃ©mon deserve it all.\n";
+                        cout << "\"Congratulations!\", applause, screams, and words of congratulations are constantly heard from the stands to youand your PokÃ©mon.\n";
                         cout << "You enjoy the sense of accomplishment that this moment brings immensely.\n";
-                        cout << "\"Congratulations!\", the previous Pok¨¦mon Master walked over to you, patted your shoulder, and said with a smile.\n";
-                        cout << "Then, take off the Pok¨¦mon Master Gold Badge pinned to his chest, and place it in your hand.\n";
+                        cout << "\"Congratulations!\", the previous PokÃ©mon Master walked over to you, patted your shoulder, and said with a smile.\n";
+                        cout << "Then, take off the PokÃ©mon Master Gold Badge pinned to his chest, and place it in your hand.\n";
                         cout << "You look at the gold medal in your handand feel deeply moved...";
                         exit(1);
 
     }
     string name;
     int choose_num;
-    vector<string> bag;//¸öÈË±³°ü
-    for (int j = 0; j < 2; j++) {//Ñ¡Á½´Î
+    vector<string> bag;//ä¸ªäººèƒŒåŒ…
+    for (int j = 0; j < 2; j++) {//é€‰ä¸¤æ¬¡
 
-        char backpack_choose = 'N'; // ÊÇ·ñÈ·¶¨½«¾«Áé·ÅÈë±³°ü±äÁ¿
-        while (backpack_choose != 'Y') { //²é¿´¾«ÁéÊôĞÔ£¬²¢Ñ¡ÔñÊÇ·ñÈ·¶¨½«¾«Áé·ÅÈë³öÕ½±³°ü
+        char backpack_choose = 'N'; // æ˜¯å¦ç¡®å®šå°†ç²¾çµæ”¾å…¥èƒŒåŒ…å˜é‡
+        while (backpack_choose != 'Y') { //æŸ¥çœ‹ç²¾çµå±æ€§ï¼Œå¹¶é€‰æ‹©æ˜¯å¦ç¡®å®šå°†ç²¾çµæ”¾å…¥å‡ºæˆ˜èƒŒåŒ…
             system("cls");
             cout << "[PokeBag]: ";
 
-            for (vector<string>::iterator i = bag.begin(); i != bag.end(); i++) { // ÏÔÊ¾±³°üµÄ¾«Áé
+            for (vector<string>::iterator i = bag.begin(); i != bag.end(); i++) { // æ˜¾ç¤ºèƒŒåŒ…çš„ç²¾çµ
                 cout << *i << " ";
             }
             cout << endl;
             cout << "[System]=> " << "The Pokemen you can choose are as follows:" << endl;
-            cout << "[System]=> " << "Which Pokemon do you want to carry? (Enter number to see the status)\n";           //»»ĞĞÁĞ³ö -XX
+            cout << "[System]=> " << "Which Pokemon do you want to carry? (Enter number to see the status)\n";           //æ¢è¡Œåˆ—å‡º -XX
 
 
-            for (int i = 0; i < input_num; i++) {           //¾«ÁéÊıÁ¿ĞŞ¸ÄÎ»ÖÃ
-                cout << "[" << i << "]" << " ===> " << Pokemen[i].name << endl;        //Ã¿´Î»»ĞĞ -XX
+            for (int i = 0; i < input_num; i++) {           //ç²¾çµæ•°é‡ä¿®æ”¹ä½ç½®
+                cout << "[" << i << "]" << " ===> " << Pokemen[i].name << endl;        //æ¯æ¬¡æ¢è¡Œ -XX
             }
-            cin >> choose_num;  //°ÑÊäÈë¾«ÁéÃû×Ö¸ÄÎªÊäÈëÊı×Ö£¬·½±ãÍæ¼ÒÊäÈë
+            cin >> choose_num;  //æŠŠè¾“å…¥ç²¾çµåå­—æ”¹ä¸ºè¾“å…¥æ•°å­—ï¼Œæ–¹ä¾¿ç©å®¶è¾“å…¥
             name = Pokemen[choose_num].name;
             int i = Search(Pokemen, name);
-            while (i == -1) {//±ÜÃâ´íÎó
+            while (i == -1) {//é¿å…é”™è¯¯
                 cout << "[PokeBag]: ";
                 for (vector<string>::iterator i = bag.begin(); i != bag.end(); i++) {
                     cout << *i << " ";
@@ -728,34 +728,34 @@ int main_battle() {
             cout << "Skill Effect: [" << Pokemen[i].skill_effect << "]" << endl;
             cout << "Skill Level: [" << Pokemen[i].skill_level << "]" << endl;
             cout << "Belonging Box: [" << Pokemen[i].pigbox << "]" << endl;
-            cout << "\n[System]=> " << "Are you sure you want to put this Pokemen in your PokeBag ? £¨Y / N£©" << endl;
+            cout << "\n[System]=> " << "Are you sure you want to put this Pokemen in your PokeBag ? ï¼ˆY / Nï¼‰" << endl;
             cin >> backpack_choose;
 
 
-            //  ³õÊ¼»¯Òì³£×´Ì¬£¬·ÀÖ¹ÉÏ¾ÖµÄÒì³£×´Ì¬²ĞÁô
+            //  åˆå§‹åŒ–å¼‚å¸¸çŠ¶æ€ï¼Œé˜²æ­¢ä¸Šå±€çš„å¼‚å¸¸çŠ¶æ€æ®‹ç•™
             Pokemen[i].controlled_abnormal_state = 0;
             Pokemen[i].harmful_abnormal_state = 0;
         }
 
         bag.push_back(name);
-        /*cout << "[PokeBag]=> \n";      //·Åµ½ÌáÎÊÇ°ÃæÁË£¬ÕâÑùÃ¿´ÎÑ¡¾ÍÄÜÖªµÀÒÑ¾­Ñ¡ÁËËµÃ÷pokemon
+        /*cout << "[PokeBag]=> \n";      //æ”¾åˆ°æé—®å‰é¢äº†ï¼Œè¿™æ ·æ¯æ¬¡é€‰å°±èƒ½çŸ¥é“å·²ç»é€‰äº†è¯´æ˜pokemon
         for (vector<string>::iterator i = bag.begin();i != bag.end();i++) {
             cout << *i << " ";
         }
         rest();*/
         Sleep(500);
     }
-    // AIÑ¡Ôñ³öÕ½¾«Áé
-    int ai_1 = rand() % AI_input_num; //ai´Ó¾«Áé³ØËæ»úÑ¡Ôñ³öÕ½¾«Áé
+    // AIé€‰æ‹©å‡ºæˆ˜ç²¾çµ
+    int ai_1 = rand() % AI_input_num; //aiä»ç²¾çµæ± éšæœºé€‰æ‹©å‡ºæˆ˜ç²¾çµ
     int ai_2 = rand() % AI_input_num;
-    while (ai_1 == ai_2) {  // È·±£²»»áÑ¡µ½ÖØ¸´µÄ
+    while (ai_1 == ai_2) {  // ç¡®ä¿ä¸ä¼šé€‰åˆ°é‡å¤çš„
         ai_2 = rand() % AI_input_num;
     }
-    Sleep(500); //ÑÓ³ÙÊä³ö
+    Sleep(500); //å»¶è¿Ÿè¾“å‡º
     system("cls");
     cout << "[System]=> " << "Let the battle begin !" << endl;      //-XX
     Sleep(1000);
-    cout << "[Gym Master]: " << endl;//Á½¸öAIºÍÍæ¼Ò¶Ô´ò£¬Ã¿´ÎÖ»Ñ¡Ò»¸ö¹¥»÷£¬Ëã×÷Ò»»ØºÏ »¹Î´¼ÓÈëÒì³£×´Ì¬
+    cout << "[Gym Master]: " << endl;//ä¸¤ä¸ªAIå’Œç©å®¶å¯¹æ‰“ï¼Œæ¯æ¬¡åªé€‰ä¸€ä¸ªæ”»å‡»ï¼Œç®—ä½œä¸€å›åˆ è¿˜æœªåŠ å…¥å¼‚å¸¸çŠ¶æ€
     cout << "Pokemon: [" << Pokemen_ai[ai_1].name << "]" << endl;
     cout << "HP: [" << Pokemen_ai[ai_1].HP << "]" << endl;
     cout << "Attack: [" << Pokemen_ai[ai_1].attack << "]" << endl;
@@ -768,7 +768,7 @@ int main_battle() {
     }
     rest();
     Sleep(500);
-    //cout << "AI_2: " << endl;       //¶ÔÊÖÃ»ÓĞÃû×Ö,ÉÏÃæGym mastercoutÒ»±é¾Í¹»ÁË
+    //cout << "AI_2: " << endl;       //å¯¹æ‰‹æ²¡æœ‰åå­—,ä¸Šé¢Gym mastercoutä¸€éå°±å¤Ÿäº†
     cout << "Pokemon: [" << Pokemen_ai[ai_2].name << "]" << endl;
     cout << "HP: [" << Pokemen_ai[ai_2].HP << "]" << endl;
     cout << "Attack: [" << Pokemen_ai[ai_2].attack << "]" << endl;
@@ -781,9 +781,9 @@ int main_battle() {
     }
 
     rest();
-    vector<string>bag_ai;//ai¶ÔÕ½¾«Áé
+    vector<string>bag_ai;//aiå¯¹æˆ˜ç²¾çµ
 
-    //  ³õÊ¼»¯Òì³£×´Ì¬£¬·ÀÖ¹ÉÏ¾ÖµÄÒì³£×´Ì¬²ĞÁô
+    //  åˆå§‹åŒ–å¼‚å¸¸çŠ¶æ€ï¼Œé˜²æ­¢ä¸Šå±€çš„å¼‚å¸¸çŠ¶æ€æ®‹ç•™
     Pokemen_ai[ai_1].controlled_abnormal_state = 0;
     Pokemen_ai[ai_2].controlled_abnormal_state = 0;
     Pokemen_ai[ai_1].harmful_abnormal_state = 0;
@@ -793,7 +793,7 @@ int main_battle() {
 
     fight(bag, bag_ai);
 
-    // ÅĞ¶ÏÊÇ·ñÒª¼ÌĞøÌôÕ½µÀ¹İ»¹ÊÇ·µ»ØÖ÷²Ëµ¥
+    // åˆ¤æ–­æ˜¯å¦è¦ç»§ç»­æŒ‘æˆ˜é“é¦†è¿˜æ˜¯è¿”å›ä¸»èœå•
     int continue_choose;
     cout << "\n[System]=> " << "The battle is over, your options is: " << endl;
     cout << "[System]=> \n" << "1 ===> Continue to challenge  \n2 ===> Exit to main menu" << endl;
