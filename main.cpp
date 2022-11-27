@@ -10,14 +10,14 @@ void background();
 void opening();
 void Introduce();
 void pokedex();
-void level_1_pokemons();        //三个等级的宝可梦图鉴，本体在最下面
+void level_1_pokemons();        //Three levels of Pok茅mon illustrations, the body at the bottom
 void level_2_pokemons();
 void level_3_pokemons();
 
 int main_func() {
 	int running_flag = 1;
 	while (running_flag == 1) {
-		system("cls"); //清屏
+		system("cls"); //Clear Screen
 		cout << setw(18) << "Pokemon" << endl;
 		cout << setw(19) << "|Main Menu|" << endl;
 		cout << "1 " << setw(18) << ">>> Start <<<" << endl;
@@ -26,7 +26,7 @@ int main_func() {
 		cout << "4 " << setw(17) << ">>> Quit <<<" << endl;
 		cout << "\n[System]=> " << "(Enter the correspond number)" << endl;
 
-		int Main_menu_input; //主菜单输入指令
+		int Main_menu_input; //Main menu input command
 		cin >> Main_menu_input;
 		while (Main_menu_input < 1 || Main_menu_input>4) {
 			cout << "\n[System]=> " << "(Enter the correspond number)" << endl;
@@ -37,9 +37,9 @@ int main_func() {
 				system("cls");
 				main_battle();
 				case int(2) :
-					//continue; //输出所有精灵信息函数的内容
+					//continue; //Output the contents of all Pok茅mons information functions
 					pokedex();
-					case int(3) : //游戏介绍
+					case int(3) : //Game Introduction
 						Introduce();
 
 						case int(4) :
@@ -53,14 +53,14 @@ int main_func() {
 	return 1;
 }
 
-void Introduce() { //游戏介绍函数
+void Introduce() { //Game introduction function
 	system("cls");
 
 	char back_flag = 'N';
-	cout << "[System]=> \n" << endl;         //游戏玩法介绍
+	cout << "[System]=> \n" << endl;         //Game play introduction
 	Sleep(500);
-	cout << "\n[System]=> " << "GO BACK ? (Y/N)" << endl; //退出选项
-	while (back_flag != 'Y') { //不选择Y就一直显示游戏介绍
+	cout << "\n[System]=> " << "GO BACK ? (Y/N)" << endl; //Exit Options
+	while (back_flag != 'Y') { //keep showing the game introduction if not choose y
 		cin >> back_flag;
 		if (back_flag == 'Y') {
 			main_func();
@@ -72,13 +72,13 @@ void Introduce() { //游戏介绍函数
 }
 
 int main() {
-	opening();                    //最后再把这个前一个//去掉，不然浪费时间
+	opening();             
 	background();
 	main_func();
 	return 0;
 }
 
-//游戏开场动画
+//Game opening animation
 void opening() {
 	cout << "[System]=> " << "Game is starting." << endl;
 	Sleep(1000);
@@ -93,7 +93,7 @@ void opening() {
 	Sleep(1000);
 }
 
-//游戏故事背景
+//Game Story Background
 void background() {
 	system("cls");
 	cout << "[System]=> " << "Do you want to skip the background? (Y/N)" << endl;
@@ -101,19 +101,19 @@ void background() {
 	cin >> skip;
 	while (skip != 'Y') {
 		system("cls");
-		cout << "[System]=> \n";            //改了一下代码形式，print一样的东西 -XX
+		cout << "[System]=> \n";            
 		cout << "In 2222, most living things on earth are no longer human beings.\n";
 		cout << "A new creature, the Pokemon, was born from a meteorite impact hundreds of years ago. \n";
 		cout << "In only a few hundred years, it has become an indispensable partner of mankind. \n";
 		cout << "Including extreme environments that humans cannot live in the Antarctic, the Arctic, and the deep sea, \n";
 		cout << "there are Pokemons in every corner of the world. \n";
 		cout << "Each Pokemon has a unique ability, helping humans achieve countless tasks that could not be completed before, \n";
-		cout << "and setting milestones one after another.Now, the upsurge of Pokemons battles is becoming the world’s focus.\n";
+		cout << "and setting milestones one after another.Now, the upsurge of Pokemons battles is becoming the world鈥檚 focus.\n";
 		cout << "Humans who own Pokemon are called trainers.\n";
 		cout << "\n";
 		cout << "They train their unique Pokemonsand march towards the title of world champion.\n";
 		cout << "Like countless other trainers, \nTake your Pokemon to defeat the owners of countless gyms, \n";
-		cout << "Stand in the same arena as the previous world championand become the new PokeChampion!" << endl; //放入游戏介绍
+		cout << "Stand in the same arena as the previous world championand become the new PokeChampion!" << endl; //鏀惧叆娓告垙浠嬬粛
 		char conti;
 		cout << "\n[System]=> " << "Continue ? (Y/N)" << endl;
 		cin >> conti;
@@ -126,7 +126,7 @@ void background() {
 	Sleep(500);
 }
 
-//游戏图鉴程序
+//Game Gallery Program
 void pokedex() {
 	system("cls");
 	cout << "[System]=> \n";
@@ -151,16 +151,16 @@ void pokedex() {
 		else if (level == 3) {
 			level_3_pokemons();
 		}
-		else if (level == 4) {   //返回主菜单
+		else if (level == 4) {   //Back to main menu
 			main_func();
 		}
-		else {    //防止乱选level，就返回
+		else {    
 			cout << "[System]=> " << "You are only able to choose 1-3 Levels !" << endl;
 		}
 	}
 }
 
-void level_1_pokemons() {   //等级一的可选宝可梦
+void level_1_pokemons() {   //Level 1 obtainable Pok茅mon
 	system("cls");
 	cout << "[System]=> \n";
 	cout << "Pokemon: [Pikachu]\n";
@@ -203,7 +203,7 @@ void level_1_pokemons() {   //等级一的可选宝可梦
 	cout << "Skill Power : [90] \n";
 	cout << "Skill Effect : [Stunned] \n";
 	cout << "------------------------------\n";
-	cout << "[System]=> " << "Do you want to GO BACK ? (Y)" << endl;       //返回pokedex
+	cout << "[System]=> " << "Do you want to GO BACK ? (Y)" << endl; 
 	char conti;
 	cin >> conti;
 	while (conti != 'Y') {
@@ -248,7 +248,7 @@ void level_2_pokemons() {
 	cout << "Skill Power : [70] \n";
 	cout << "Skill Effect : [Burn] [2 turns] \n";
 	cout << "------------------------------\n";
-	cout << "[System]=> " << "Do you want to GO BACK ? (Y)" << endl;       //返回pokedex
+	cout << "[System]=> " << "Do you want to GO BACK ? (Y)" << endl;       //back to pokedex
 	char conti;
 	cin >> conti;
 	while (conti != 'Y') {
@@ -293,7 +293,7 @@ void level_3_pokemons() {
 	cout << "Skill Power : [80] \n";
 	cout << "Skill Effect : [Burn] [3 turns]\n";
 	cout << "------------------------------\n";
-	cout << "[System]=> " << "Do you want to GO BACK ? (Y)" << endl;       //返回pokedex
+	cout << "[System]=> " << "Do you want to GO BACK ? (Y)" << endl;       //back to pokedex
 	char conti;
 	cin >> conti;
 	while (conti != 'Y') {
