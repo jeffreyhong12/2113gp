@@ -4,31 +4,31 @@
 #include <vector>
 using namespace std;
 
-//用class来罗列character
-class initial_pig_1 {//一号初始精灵
+//Enumerate characters by class
+class initial_pig_1 {//Initial pig number one
 public:
     string name = "Pikachu";
     int HP = 210;
     int attack = 100;
     int defense = 35;
-    string skill = "fetters";//技能的昵称，不影响程序计算
-    string skill_effect = "stunned";//技能的类型，目前只有两种类型的技能（stunned和burn），此为眩晕，使对方一定概率下一回合内不能行动
-    int skill_level = 1;//技能等级为1，有50%的概率眩晕。眩晕概率算法为 x/(x+1),x为技能等级,技能最高为三级
-    int skill_attack = 70;//使用技能时此技能的攻击力
-    string pig_box = "initial";//所属的精灵池，此处为初始精灵池（还有其他精灵池level_1,level_2,level_3,obtainable）
+    string skill = "fetters";//Nicknames for skills that do not affect program calculations
+    string skill_effect = "stunned";//The type of skills, there are only two types of skills (stunned and burn), this is stunned, so that the opponent a certain probability of not being able to act in the next turn
+    int skill_level = 1;//Skill level is 1, there is a 50% chance of stun. Stun probability algorithm is x/(x+1), x is the skill level, the highest skill level is three
+    int skill_attack = 70;//Attack power of this skill when using the skill
+    string pig_box = "initial";//The pig pool to which it belong, here is the initial pig pool (there are other pig pools level_1,level_2,level_3,obtainable)
 
 
 };
-class initial_pig_2 {//二号初始精灵
+class initial_pig_2 {
 public:
     string name = "Bulbasaur";
     int HP = 220;
     int attack = 80;
     int defense = 45;
     string skill = "Sludge Bomb";
-    string skill_effect = "burn";//灼伤，使对面下几回合开始时受到伤害
-    int skill_level = 1;//技能等级为1，使对面下1回合开始时受到20点无视防御力的伤害。如果技能等级为2，则持续两回合点伤害
-    int skill_attack = 50;//使用技能时此技能的攻击力
+    string skill_effect = "burn";//Burn, causing the opposite side to take damage at the beginning of the next few turns
+    int skill_level = 1;//Skill level 1 causes the opponent to take 20 points of damage ignoring defense at the beginning of the next 1 turn. If the skill level is 2, it lasts for two rounds of point damage
+    int skill_attack = 50;//
     string pig_box = "initial";
 
 
@@ -79,8 +79,8 @@ public:
 
 
 
-//以下为第一个道馆的敌人
-class level_1_AI_1 {//第一个道馆的第一个敌人
+//The following are the enemies of the first  Pokémon Gym
+class level_1_AI_1 {//The first enemy of the firstfirst Pokémon Gym
 public:
     string name = "Plusle_AI";
     int HP = 150;
@@ -91,7 +91,7 @@ public:
 
 
 };
-class level_1_AI_2 {//第一个道馆的第二个敌人
+class level_1_AI_2 {//The second enemy of the first Pokémon Gym
 public:
     string name = "Arbok_AI";
     int HP = 180;
@@ -102,7 +102,7 @@ public:
 
 
 };
-class level_1_AI_3 {//第一个道馆的第二个敌人
+class level_1_AI_3 {
 public:
     string name = "Nidoqueen_AI";
     int HP = 210;
@@ -113,7 +113,7 @@ public:
 
 
 };
-class level_1_AI_4 {//第一个道馆的第二个敌人
+class level_1_AI_4 {
 public:
     string name = "Nidorino_AI";
     int HP = 160;
@@ -125,8 +125,8 @@ public:
 
 };
 
-//以下为第二个道馆的敌人
-class level_2_AI_1 {//第2个道馆的第一个敌人
+//The following are the enemies of the second Pokémon Gym
+class level_2_AI_1 {
 public:
     string name = "Muk_AI";
     int HP = 255;
@@ -136,11 +136,11 @@ public:
     string skill_effect = "burn";
     int skill_level = 1;
     int skill_attack = 50;
-    string pig_box = "level_2";//第二个道馆的精灵池
+    string pig_box = "level_2";
 
 
 };
-class level_2_AI_2 {//第2个道馆的第二个敌人
+class level_2_AI_2 {
 public:
     string name = "Seel_AI";
     int HP = 180;
@@ -183,7 +183,7 @@ public:
 
 };
 
-//以下为第三个道馆的敌人
+
 class level_3_AI_1 {
 public:
     string name = "Machamp_AI";
@@ -243,7 +243,7 @@ public:
 
 
 
-class addable_pig_1 {//打完第一个道馆后可获得的精灵(以下精灵中随机获得一个)
+class addable_pig_1 {//pigs available after win the first  Pokémon Gym
 public:
     string name = "Manectric";
     int HP = 250;
@@ -257,7 +257,7 @@ public:
 
 
 };
-class addable_pig_2 {//打完第一个道馆后可获得的精灵
+class addable_pig_2 {
 public:
     string name = "Electrike";
     int HP = 260;
@@ -271,7 +271,7 @@ public:
 
 
 };
-class addable_pig_3 {//打完第一个道馆后可获得的精灵
+class addable_pig_3 {
 public:
     string name = "Charmander";
     int HP = 280;
@@ -285,7 +285,7 @@ public:
 
 
 };
-class addable_pig_4 {//打完第一个道馆后可获得的精灵
+class addable_pig_4 {
 public:
     string name = "Charizard";
     int HP = 300;
@@ -299,7 +299,7 @@ public:
 
 
 };
-class addable_pig_5 {//打完第一个道馆后可获得的精灵
+class addable_pig_5 {
 public:
     string name = "Kabutops";
     int HP = 380;
@@ -313,7 +313,7 @@ public:
 
 
 };
-class addable_pig_6 {//打完第一个道馆后可获得的精灵
+class addable_pig_6 {
 public:
     string name = "Snorlax";
     int HP = 350;
@@ -327,7 +327,7 @@ public:
 
 
 };
-class addable_pig_7 {//打完第一个道馆后可获得的精灵
+class addable_pig_7 {
 public:
     string name = "Ditto";
     int HP = 320;
@@ -341,7 +341,7 @@ public:
 
 
 };
-class addable_pig_8 {//打完第一个道馆后可获得的精灵
+class addable_pig_8 {
 public:
     string name = "Mewtwo";
     int HP = 315;
