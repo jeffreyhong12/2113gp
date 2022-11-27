@@ -728,7 +728,7 @@ int main_battle() {
             cout << "Skill Effect: [" << Pokemen[i].skill_effect << "]" << endl;
             cout << "Skill Level: [" << Pokemen[i].skill_level << "]" << endl;
             cout << "Belonging Box: [" << Pokemen[i].pigbox << "]" << endl;
-            cout << "\n[System]=> " << "Are you sure you want to put this Pokemen in your PokeBag ? （Y / N）" << endl;
+            cout << "\n[System]=> " << "Are you sure you want to put this Pokemen in your PokeBag ? (Y / N)" << endl;
             cin >> backpack_choose;
 
 
