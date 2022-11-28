@@ -30,4 +30,4 @@ The formula for calculating the damage that a Pokémon attack can inflict on an 
 
 **Damage dealt = Attacker's attack - Defender's defense**
 
-So, if you want to cause damage to the enemy, your own Pokémon's attack power must be greater than the enemy's defense power.Hope you have a good game experience!
+So, if you want to cause damage to the enemy, your own Pokémon's attack power must be greater than the enemy's defense power. Hope you have a good game experience!
