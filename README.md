@@ -26,4 +26,7 @@ skill_level: the level of the skill, it affects the strength of the skill effect
 
 skill_attact: the attack power when using the skill
 
+The formula for calculating the damage that a Pokémon attack can inflict on an enemy is
+
+**Damage dealt = Attacker's attack - Defender's defense**
 
