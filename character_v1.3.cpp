@@ -83,7 +83,7 @@ public:
 class level_1_AI_1 {//The first enemy of the firstfirst Pokémon Gym
 public:
     string name = "Plusle_AI";
-    int HP = 150;
+    int HP = 180;
     int attack = 80;
     int defense = 30;
     string pig_box = "level_1";
@@ -94,7 +94,7 @@ public:
 class level_1_AI_2 {//The second enemy of the first Pokémon Gym
 public:
     string name = "Arbok_AI";
-    int HP = 180;
+    int HP = 210;
     int attack = 70;
     int defense = 30;
     string skill = "None";
@@ -105,7 +105,7 @@ public:
 class level_1_AI_3 {
 public:
     string name = "Nidoqueen_AI";
-    int HP = 210;
+    int HP = 230;
     int attack = 65;
     int defense = 25;
     string skill = "None";
@@ -116,7 +116,7 @@ public:
 class level_1_AI_4 {
 public:
     string name = "Nidorino_AI";
-    int HP = 160;
+    int HP = 180;
     int attack = 90;
     int defense = 35;
     string skill = "None";
@@ -129,7 +129,7 @@ public:
 class level_2_AI_1 {
 public:
     string name = "Muk_AI";
-    int HP = 255;
+    int HP = 270;
     int attack = 75;
     int defense = 48;
     string skill = "Blast Burn";
@@ -143,7 +143,7 @@ public:
 class level_2_AI_2 {
 public:
     string name = "Seel_AI";
-    int HP = 180;
+    int HP = 230;
     int attack = 120;
     int defense = 35;
     string skill = "Torment";
@@ -157,7 +157,7 @@ public:
 class level_2_AI_3 {
 public:
     string name = "Venomoth_AI";
-    int HP = 205;
+    int HP = 235;
     int attack = 100;
     int defense = 40;
     string skill = "Hyper Voice";
@@ -171,7 +171,7 @@ public:
 class level_2_AI_4 {
 public:
     string name = "Diglett_AI";
-    int HP = 240;
+    int HP = 270;
     int attack = 80;
     int defense = 46;
     string skill = "Overheat";
@@ -187,7 +187,7 @@ public:
 class level_3_AI_1 {
 public:
     string name = "Machamp_AI";
-    int HP = 320;
+    int HP = 350;
     int attack = 90;
     int defense = 50;
     string skill = "Fire Spin";
@@ -201,7 +201,7 @@ public:
 class level_3_AI_2 {
 public:
     string name = "Eevee_AI";
-    int HP = 315;
+    int HP = 345;
     int attack = 88;
     int defense = 50;
     string skill = "Fire Blast";
@@ -215,7 +215,7 @@ public:
 class level_3_AI_3 {
 public:
     string name = "Flareon_AI";
-    int HP = 270;
+    int HP = 310;
     int attack = 105;
     int defense = 40;
     string skill = "Supersonic";
@@ -229,7 +229,7 @@ public:
 class level_3_AI_4 {
 public:
     string name = "Omanyte_AI";
-    int HP = 285;
+    int HP = 335;
     int attack = 110;
     int defense = 35;
     string skill = "Disable";
