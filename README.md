@@ -7,9 +7,7 @@
 **4.Detailed Game Description:** Before players do battle, they need to choose two different Pokémon from the pool of Pokémon and put them into their backpacks. The enemy will also have two different Pokémon. Only one Pokémon can be on the field for the player and the enemy to fight at the same time. If this Pokémon on the field dies, the next one will be replaced automatically.
 
 Each Pokémon has two types of attacks, normal attacks and skill attacks. Normal attacks cause more damage, skill attacks cause less damage but will have special effects.
-
 There are currently two special effects, burning and stunned. If the enemy is hit by the burning effect, he will take some damage at the beginning of the next turn. If the enemy is stunned, there is a certain chance that he will be unable to act in the next turn.
-
 
 Each Pokémon has seven different attributes, namely: HP, attack, defense, skill, skill_effect, skill_level, skill_attact
 
@@ -32,3 +30,4 @@ The formula for calculating the damage that a Pokémon attack can inflict on an 
 
 **Damage dealt = Attacker's attack - Defender's defense**
 
+So, if you want to cause damage to the enemy, your own Pokémon's attack power must be greater than the enemy's defense power to
