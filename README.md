@@ -10,6 +10,7 @@ Each Pokémon has two types of attacks, normal attacks and skill attacks. Normal
 
 There are currently two special effects, burning and stunned. If the enemy is hit by the burning effect, he will take some damage at the beginning of the next turn. If the enemy is stunned, there is a certain chance that he will be unable to act in the next turn.
 
+
 Each Pokémon has seven different attributes, namely: HP, attack, defense, skill, skill_effect, skill_level, skill_attact
 
 HP: The amount of blood of the Pokémon, when it reaches 0, it dies.
@@ -25,6 +26,7 @@ skill_effect: the skill type of the skill
 skill_level: the level of the skill, it affects the strength of the skill effect
 
 skill_attact: the attack power when using the skill
+
 
 The formula for calculating the damage that a Pokémon attack can inflict on an enemy is
 
