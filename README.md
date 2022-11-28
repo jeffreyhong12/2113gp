@@ -10,3 +10,4 @@ Each Pokémon has two types of attacks, normal attacks and skill attacks. Normal
 
 There are currently two special effects, burning and stunned. If the enemy is hit by the burning effect, he will take some damage at the beginning of the next turn. If the enemy is stunned, there is a certain chance that he will be unable to act in the next turn.
 
+asd
