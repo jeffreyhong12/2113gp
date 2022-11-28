@@ -13,9 +13,17 @@ There are currently two special effects, burning and stunned. If the enemy is hi
 Each Pokémon has seven different attributes, namely: HP, attack, defense, skill, skill_effect, skill_level, skill_attact
 
 HP: The amount of blood of the Pokémon, when it reaches 0, it dies.
+
 Attack: Attack power of normal attack
+
 Defence: Defence power
+
 Skill: nickname of the skill, does not affect the calculation of the program
+
 skill_effect: the skill type of the skill
+
 skill_level: the level of the skill, it affects the strength of the skill effect
+
 skill_attact: the attack power when using the skill
+
+
