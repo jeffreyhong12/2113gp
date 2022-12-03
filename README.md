@@ -39,9 +39,9 @@ So, if you want to cause damage to the enemy, your own Pokémon's attack power m
 **6.features that we have implemented**
 • Generation of random game sets or events: The enemy will select pokemons randomly, and randomly use normal attacks or skills, and skills have a probability to course special effects.
 
-• Data structures for storing game status: 
+• Data structures for storing game status: For setting and changing the properties of Pokemon, we use struct. Then array is used to store the struct. Game progress is determined using an integer. search function to locate the location of the sprite in the struct array
 
-• Dynamic memory management: we use "new"
+• Dynamic memory management: we use new to receive some temporary values for comparison and then delete them after use
 
 • File input/output (e.g., for loading/saving game status): use .h head File documents and transfer game data from different files 
 
