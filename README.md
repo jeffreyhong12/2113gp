@@ -75,4 +75,4 @@ Are you sure you want to pick it?
 
 <<<Y
 
-then go to the battle, you cna follow the instruction on the screen!
+then go to the battle, you can follow the instruction on the screen!
