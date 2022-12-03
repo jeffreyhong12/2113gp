@@ -57,6 +57,8 @@ Continue?
 
 <<<Y
 
+(1) Start the game!
+
 <<<1
 
 Pick your Pokemon
@@ -75,4 +77,4 @@ Are you sure you want to pick it?
 
 <<<Y
 
-then go to the battle, you can follow the instruction on the screen!
+Then go to the battle. You can follow the instruction on the screen, and type the number at the beginning of each line to continue the battle.
