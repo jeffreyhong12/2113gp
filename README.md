@@ -37,8 +37,17 @@ The formula for calculating the damage that a Pokémon attack can inflict on an 
 So, if you want to cause damage to the enemy, your own Pokémon's attack power must be greater than the enemy's defense power. Hope you have a good game experience!
 
 **6.features that we have implemented**
+• Generation of random game sets or events: The enemy will select pokemons randomly, and randomly use normal attacks or skills, and skills have a probability to course special effects.
 
-**7.Quick Start:**
+• Data structures for storing game status: 
+
+• Dynamic memory management: we use "new"
+
+• File input/output (e.g., for loading/saving game status): use .h head File documents and transfer game data from different files 
+
+• Program codes in multiple files: we have main.cpp, hattle.h, battle.cpp, character.cpp, pokemon.h
+
+**7.Compilation and execution instructions(Quick Start):**
 
 Skip the background?
 
